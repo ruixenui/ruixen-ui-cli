@@ -29,7 +29,7 @@ program
 
 program
   .command('add')
-  .description('Add components to your project')
+  .description('Add components to your project (auto-initializes if needed)')
   .argument('<components...>', 'component names')
   .action(async (componentNames: string[]) => {
     try {

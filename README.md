@@ -8,13 +8,16 @@ A CLI tool for [Ruixen UI](https://github.com/ruixen-ui) — a set of accessible
 # Install Tailwind CSS if not already present
 npm install -D tailwindcss
 
-# Initialize your project
-npx ruixen-ui init
-
-# Add components
-npx ruixen-ui add CTA_01
-npx ruixen-ui add Accordion_01
+# Add components (auto-initializes if needed)
+npx ruixen-ui add cta-01
+npx ruixen-ui add accordion-01
 ```
+
+**That's it!** The CLI will automatically:
+- Initialize your project if needed
+- Install required dependencies
+- Set up configuration files
+- Add the requested components
 
 ## Installation
 
