@@ -26,12 +26,26 @@ export async function add(componentNames: string[]): Promise<void> {
   const spinner = ora(`Adding ${componentNames.length > 1 ? `${componentNames.length} components` : componentNames[0]}...`).start();
 
   try {
-    const config = await readConfig();
+    let config = await readConfig();
     if (!config) {
-      spinner.fail('Project not initialized');
-      console.log(chalk.red('ruixen.config.json not found'));
-      console.log(chalk.yellow('Run "npx ruixen-ui init" first'));
-      return;
+      spinner.text = 'Project not initialized. Running initialization...';
+      console.log(chalk.yellow('\nProject not initialized. Running initialization first...'));
+      
+      // Import and run init command
+      const { init } = await import('./init');
+      await init();
+      
+      // Read config again after initialization
+      config = await readConfig();
+      if (!config) {
+        spinner.fail('Failed to initialize project');
+        console.log(chalk.red('Could not create ruixen.config.json'));
+        return;
+      }
+      
+      console.log(chalk.green('✓ Project initialized successfully!'));
+      console.log(chalk.blue('\nNow adding components...\n'));
+      spinner.start(`Adding ${componentNames.length > 1 ? `${componentNames.length} components` : componentNames[0]}...`);
     }
 
     // Detect framework to determine the correct import alias
