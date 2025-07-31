@@ -48,7 +48,7 @@ export async function getInstalledDependencies(): Promise<Record<string, string>
 }
 
 export async function readConfig(): Promise<Config | null> {
-  const configPath = path.join(process.cwd(), 'nocta.config.json');
+  const configPath = path.join(process.cwd(), 'ruixen.config.json');
   
   if (!(await fs.pathExists(configPath))) {
     return null;
@@ -57,12 +57,12 @@ export async function readConfig(): Promise<Config | null> {
   try {
     return await fs.readJson(configPath);
   } catch (error) {
-    throw new Error(`Failed to read nocta.config.json: ${error}`);
+    throw new Error(`Failed to read ruixen.config.json: ${error}`);
   }
 }
 
 export async function writeConfig(config: Config): Promise<void> {
-  const configPath = path.join(process.cwd(), 'nocta.config.json');
+  const configPath = path.join(process.cwd(), 'ruixen.config.json');
   await fs.writeJson(configPath, config, { spaces: 2 });
 }
 
@@ -120,7 +120,7 @@ export async function addDesignTokensToCss(cssFilePath: string, themeName: strin
       cssContent = await fs.readFile(fullPath, 'utf8');
       
       // Check if tokens already exist
-      if (cssContent.includes('@theme') && cssContent.includes('--color-nocta-')) {
+      if (cssContent.includes('@theme') && cssContent.includes('--color-ruixen-')) {
         return false; // Tokens already exist
       }
     }
@@ -179,8 +179,8 @@ export async function addDesignTokensToTailwindConfig(configFilePath: string, th
     if (await fs.pathExists(fullPath)) {
       configContent = await fs.readFile(fullPath, 'utf8');
       
-      // Check if nocta colors already exist
-      if (configContent.includes('nocta:') || configContent.includes('"nocta"')) {
+      // Check if ruixen colors already exist
+      if (configContent.includes('ruixen:') || configContent.includes('"ruixen"')) {
         return false; // Tokens already exist
       }
     } else {
@@ -207,8 +207,8 @@ module.exports = {
       }
     }
 
-    // Nocta colors object as a string
-    const noctaColorsObject = generateTailwindV3ColorsString(theme);
+    // Ruixen colors object as a string
+    const ruixenColorsObject = generateTailwindV3ColorsString(theme);
 
     let modifiedContent = configContent;
 
@@ -267,7 +267,7 @@ module.exports = {
     }
 
     if (foundColors && colorsEndIndex > -1) {
-      // Add nocta colors to existing colors section
+      // Add ruixen colors to existing colors section
       const beforeColorsEnd = lines.slice(0, colorsEndIndex);
       const colorsEndLine = lines[colorsEndIndex];
       const afterColorsEnd = lines.slice(colorsEndIndex + 1);
@@ -283,7 +283,7 @@ module.exports = {
       }
       
       const needsComma = lastColorLine && !lastColorLine.endsWith(',');
-      const indentForNocta = colorsIndent + '  ';
+      const indentForRuixen = colorsIndent + '  ';
       
       // Add comma to last existing color if needed
       if (needsComma) {
@@ -297,14 +297,14 @@ module.exports = {
         }
       }
       
-      // Add nocta colors
-      const noctaLines = noctaColorsObject.split('\n').map(line => 
-        line ? indentForNocta + line : line
+      // Add ruixen colors
+      const ruixenLines = ruixenColorsObject.split('\n').map(line => 
+        line ? indentForRuixen + line : line
       );
       
       modifiedContent = [
         ...beforeColorsEnd,
-        ...noctaLines,
+        ...ruixenLines,
         colorsEndLine,
         ...afterColorsEnd
       ].join('\n');
@@ -330,7 +330,7 @@ module.exports = {
       
       const colorsLines = [
         `${extendIndent}  colors: {`,
-        ...noctaColorsObject.split('\n').map(line => 
+        ...ruixenColorsObject.split('\n').map(line => 
           line ? `${extendIndent}    ${line}` : line
         ),
         `${extendIndent}  }${hasContent ? ',' : ''}`
@@ -348,7 +348,7 @@ module.exports = {
       const themeRegex = /(theme:\s*{)(\s*)(})/;
       if (themeRegex.test(modifiedContent)) {
         modifiedContent = modifiedContent.replace(themeRegex, (match, before, whitespace, after) => {
-          return `${before}\n    extend: {\n      colors: {\n        ${noctaColorsObject}\n      }\n    },\n  ${after}`;
+          return `${before}\n    extend: {\n      colors: {\n        ${ruixenColorsObject}\n      }\n    },\n  ${after}`;
         });
       }
     }
@@ -419,7 +419,7 @@ export async function getTailwindConfigPath(): Promise<string> {
 
 export async function rollbackInitChanges(): Promise<void> {
   const filesToCheck = [
-    'nocta.config.json',
+    'ruixen.config.json',
     'tailwind.config.js',
     'tailwind.config.ts',
     'lib/utils.ts',
@@ -669,7 +669,7 @@ export function getThemeByName(themeName: string): Theme {
 
 export function generateDesignTokensCss(theme: Theme): string {
   const tokens = Object.entries(theme.colors)
-    .map(([key, value]) => `  --color-nocta-${key}: ${value};`)
+    .map(([key, value]) => `  --color-ruixen-${key}: ${value};`)
     .join('\n');
   
   return `@theme {\n${tokens}\n}`;
@@ -677,7 +677,7 @@ export function generateDesignTokensCss(theme: Theme): string {
 
 export function generateTailwindV3Colors(theme: Theme): Record<string, Record<string, string>> {
   return {
-    nocta: theme.colors
+    ruixen: theme.colors
   };
 }
 
@@ -686,5 +686,5 @@ export function generateTailwindV3ColorsString(theme: Theme): string {
     .map(([key, value]) => `        "${key}": "${value}"`)
     .join(',\n');
   
-  return `"nocta": {\n${colors}\n      }`;
+  return `"ruixen": {\n${colors}\n      }`;
 }

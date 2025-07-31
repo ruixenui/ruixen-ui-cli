@@ -29,7 +29,7 @@ async function add(componentNames) {
         const config = await (0, files_1.readConfig)();
         if (!config) {
             spinner.fail('Project not initialized');
-            console.log(chalk_1.default.red('nocta.config.json not found'));
+            console.log(chalk_1.default.red('ruixen.config.json not found'));
             console.log(chalk_1.default.yellow('Run "npx ruixen-ui init" first'));
             return;
         }

@@ -14,7 +14,7 @@ const packageJson = require('../package.json');
 const program = new commander_1.Command();
 program
     .name('ruixen-ui')
-    .description('CLI for Nocta UI Components Library')
+    .description('CLI for ta UI Components Library')
     .version(packageJson.version);
 program
     .command('init')

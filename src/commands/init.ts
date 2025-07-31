@@ -13,7 +13,7 @@ export async function init(): Promise<void> {
     const existingConfig = await readConfig();
     if (existingConfig) {
       spinner.stop();
-      console.log(chalk.yellow('nocta.config.json already exists!'));
+      console.log(chalk.yellow('ruixen.config.json already exists!'));
       console.log(chalk.gray('Your project is already initialized.'));
       return;
     }
@@ -203,7 +203,7 @@ export function cn(...inputs: ClassValue[]) {
     }
 
     // Add design tokens
-    spinner.text = 'Adding Nocta design tokens...';
+    spinner.text = 'Adding Ruixen design tokens...';
     let tokensAdded = false;
     let tokensLocation = '';
     
@@ -242,7 +242,7 @@ export function cn(...inputs: ClassValue[]) {
     spinner.succeed('ruixen-ui initialized successfully!');
     
     console.log(chalk.green('\nConfiguration created:'));
-    console.log(chalk.gray(`   nocta.config.json (${frameworkInfo})`));
+    console.log(chalk.gray(`   ruixen.config.json (${frameworkInfo})`));
     
     console.log(chalk.blue('\nTheme selected:'));
     console.log(chalk.gray(`   ${AVAILABLE_THEMES.find(t => t.name === selectedTheme)?.displayName} (${selectedTheme})`));
@@ -261,12 +261,12 @@ export function cn(...inputs: ClassValue[]) {
     if (tokensAdded) {
       console.log(chalk.green('\nDesign tokens added:'));
       console.log(chalk.gray(`   ${tokensLocation}`));
-      console.log(chalk.gray(`   • Nocta color palette (nocta-50 to nocta-950)`));
+      console.log(chalk.gray(`   • Ruixen color palette (ruixen-50 to ruixen-950)`));
       console.log(chalk.gray(`   • Theme: ${AVAILABLE_THEMES.find(t => t.name === selectedTheme)?.displayName}`));
       if (isTailwindV4) {
-        console.log(chalk.gray(`   • Use: text-nocta-500, bg-nocta-100, etc.`));
+        console.log(chalk.gray(`   • Use: text-ruixen-500, bg-ruixen-100, etc.`));
       } else {
-        console.log(chalk.gray(`   • Use: text-nocta-500, bg-nocta-100, etc.`));
+        console.log(chalk.gray(`   • Use: text-ruixen-500, bg-ruixen-100, etc.`));
       }
     } else if (!tokensAdded && tokensLocation === '') {
       console.log(chalk.yellow('\nDesign tokens skipped (already exist or error occurred)'));

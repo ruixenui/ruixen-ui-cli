@@ -12,7 +12,7 @@ const program = new Command();
 
 program
   .name('ruixen-ui')
-  .description('CLI for Nocta UI Components Library')
+  .description('CLI for Ruixen UI Components Library')
   .version(packageJson.version);
 
 program

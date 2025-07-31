@@ -1,7 +1,7 @@
 {
   "name": "ruixen-ui",
   "version": "2.3.0",
-  "description": "CLI for Nocta UI Components Library",
+  "description": "CLI for Ruixen UI Components Library",
   "main": "dist/cli.js",
   "bin": {
     "ruixen-ui": "./dist/cli.js"
@@ -17,7 +17,7 @@
     "ui",
     "components",
     "cli",
-    "nocta"
+    "ruixen"
   ],
   "author": "",
   "license": "ISC",

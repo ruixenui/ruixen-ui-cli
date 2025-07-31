@@ -15,7 +15,7 @@ async function init() {
         const existingConfig = await (0, files_1.readConfig)();
         if (existingConfig) {
             spinner.stop();
-            console.log(chalk_1.default.yellow('nocta.config.json already exists!'));
+            console.log(chalk_1.default.yellow('ruixen.config.json already exists!'));
             console.log(chalk_1.default.gray('Your project is already initialized.'));
             return;
         }
@@ -191,7 +191,7 @@ export function cn(...inputs: ClassValue[]) {
             utilsCreated = true;
         }
         // Add design tokens
-        spinner.text = 'Adding Nocta design tokens...';
+        spinner.text = 'Adding Ruixen design tokens...';
         let tokensAdded = false;
         let tokensLocation = '';
         try {
@@ -230,7 +230,7 @@ export function cn(...inputs: ClassValue[]) {
         }
         spinner.succeed('ruixen-ui initialized successfully!');
         console.log(chalk_1.default.green('\nConfiguration created:'));
-        console.log(chalk_1.default.gray(`   nocta.config.json (${frameworkInfo})`));
+        console.log(chalk_1.default.gray(`   ruixen.config.json (${frameworkInfo})`));
         console.log(chalk_1.default.blue('\nTheme selected:'));
         console.log(chalk_1.default.gray(`   ${types_1.AVAILABLE_THEMES.find(t => t.name === selectedTheme)?.displayName} (${selectedTheme})`));
         console.log(chalk_1.default.blue('\nDependencies installed:'));
@@ -245,13 +245,13 @@ export function cn(...inputs: ClassValue[]) {
         if (tokensAdded) {
             console.log(chalk_1.default.green('\nDesign tokens added:'));
             console.log(chalk_1.default.gray(`   ${tokensLocation}`));
-            console.log(chalk_1.default.gray(`   • Nocta color palette (nocta-50 to nocta-950)`));
+            console.log(chalk_1.default.gray(`   • Ruixen color palette (ruixen-50 to ruixen-950)`));
             console.log(chalk_1.default.gray(`   • Theme: ${types_1.AVAILABLE_THEMES.find(t => t.name === selectedTheme)?.displayName}`));
             if (isTailwindV4) {
-                console.log(chalk_1.default.gray(`   • Use: text-nocta-500, bg-nocta-100, etc.`));
+                console.log(chalk_1.default.gray(`   • Use: text-ruixen-500, bg-ruixen-100, etc.`));
             }
             else {
-                console.log(chalk_1.default.gray(`   • Use: text-nocta-500, bg-nocta-100, etc.`));
+                console.log(chalk_1.default.gray(`   • Use: text-ruixen-500, bg-ruixen-100, etc.`));
             }
         }
         else if (!tokensAdded && tokensLocation === '') {

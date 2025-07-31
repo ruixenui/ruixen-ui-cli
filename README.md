@@ -1,6 +1,6 @@
 # ruixen-ui
 
-A CLI tool for [Ruixen UI](https://github.com/66HEX/ruixen-ui) — a set of accessible React components built using TypeScript and Tailwind CSS.
+A CLI tool for [Ruixen UI](https://github.com/ruixen-ui) — a set of accessible React components built using TypeScript and Tailwind CSS.
 
 ## Quick Start
 
@@ -12,9 +12,8 @@ npm install -D tailwindcss
 npx ruixen-ui init
 
 # Add components
-npx ruixen-ui add button
-npx ruixen-ui add card
-npx ruixen-ui add alert
+npx ruixen-ui add CTA_01
+npx ruixen-ui add Accordion_01
 ```
 
 ## Installation
@@ -118,12 +117,12 @@ The CLI works with:
 - Tailwind CSS v3 (config-based tokens)
 - Tailwind CSS v4 (CSS variable-based tokens)
 
-Tokens include `nocta-50` to `nocta-950` and adapt based on the selected theme.
+Tokens include `ruixen-50` to `ruixen-950` and adapt based on the selected theme.
 
 Example usage:
 
 ```tsx
-<Button className="bg-nocta-500 hover:bg-nocta-600 text-white">
+<Button className="bg-ruixen-500 hover:bg-ruixen-600 text-white">
   Submit
 </Button>
 ```
@@ -179,12 +178,12 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 export default function Example() {
   return (
-    <Card className="border-nocta-200">
-      <CardHeader className="bg-nocta-50">
-        <CardTitle className="text-nocta-900">Welcome</CardTitle>
+    <Card className="border-ruixen-200">
+      <CardHeader className="bg-ruixen-50">
+        <CardTitle className="text-ruixen-900">Welcome</CardTitle>
       </CardHeader>
       <CardContent>
-        <Button className="bg-nocta-500 hover:bg-nocta-600 text-white">
+        <Button className="bg-ruixen-500 hover:bg-ruixen-600 text-white">
           Get Started
         </Button>
       </CardContent>
@@ -195,11 +194,11 @@ export default function Example() {
 
 ## Documentation
 
-See [Ruixen UI on GitHub](https://github.com/66HEX/ruixen-ui) for full component docs, customization, and examples.
+See [Ruixen UI on GitHub](https://github.com/ruixen-ui) for full component docs, customization, and examples.
 
 ## Contributing
 
-Found a bug or want to suggest a feature? [Open an issue](https://github.com/66HEX/ruixen-ui-cli/issues).
+Found a bug or want to suggest a feature? [Open an issue](https://github.com/ruixen-ui-cli/issues).
 
 ## License
 
