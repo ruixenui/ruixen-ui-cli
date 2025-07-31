@@ -278,7 +278,7 @@ export function cn(...inputs: ClassValue[]) {
     }
     
     console.log(chalk.blue('\nYou can now add components:'));
-    console.log(chalk.gray('   npx ruixen-ui add button'));
+    console.log(chalk.gray('   npx ruixen-ui add cta-01'));
 
   } catch (error) {
     spinner.fail('Failed to initialize ruixen-ui');

@@ -41,8 +41,7 @@ export async function list(): Promise<void> {
     console.log(chalk.gray('  npx ruixen-ui add <component-name>'));
     
     console.log(chalk.blue('\nExamples:'));
-    console.log(chalk.gray('  npx ruixen-ui add button'));
-    console.log(chalk.gray('  npx ruixen-ui add card'));
+    console.log(chalk.gray('  npx ruixen-ui add cta-01'));
 
   } catch (error) {
     spinner.fail('Failed to fetch components');

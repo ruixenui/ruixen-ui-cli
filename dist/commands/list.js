@@ -35,8 +35,7 @@ async function list() {
         console.log(chalk_1.default.blue('\nAdd a component:'));
         console.log(chalk_1.default.gray('  npx ruixen-ui add <component-name>'));
         console.log(chalk_1.default.blue('\nExamples:'));
-        console.log(chalk_1.default.gray('  npx ruixen-ui add button'));
-        console.log(chalk_1.default.gray('  npx ruixen-ui add card'));
+        console.log(chalk_1.default.gray('  npx ruixen-ui add cta-01'));
     }
     catch (error) {
         spinner.fail('Failed to fetch components');

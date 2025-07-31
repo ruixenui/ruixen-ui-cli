@@ -7,10 +7,8 @@ exports.listComponents = listComponents;
 exports.getComponentsByCategory = getComponentsByCategory;
 exports.getCategories = getCategories;
 exports.getComponentWithDependencies = getComponentWithDependencies;
-
 const REGISTRY_URL = 'https://ruixen.com/registry.json';
 const COMPONENTS_BASE_URL = 'https://ruixen.com/ruixen-ui';
-
 async function getRegistry() {
     try {
         const response = await fetch(REGISTRY_URL);

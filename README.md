@@ -74,7 +74,7 @@ npx ruixen-ui list
 Installs a UI component:
 
 ```bash
-npx ruixen-ui add button
+npx ruixen-ui add cta-01
 ```
 
 - Adds the component to your project

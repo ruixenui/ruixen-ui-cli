@@ -1,6 +1,6 @@
 {
   "name": "ruixen-ui",
-  "version": "2.3.0",
+  "version": "1.0.12",
   "description": "CLI for Ruixen UI Components Library",
   "main": "dist/cli.js",
   "bin": {
